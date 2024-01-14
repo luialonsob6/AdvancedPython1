@@ -1,6 +1,7 @@
 """
 Script to make updates in github
 """
+import os
 import pandas as pd
 import click
 
@@ -55,6 +56,11 @@ def main(input, output, filtering, genre, year):
         Filter_exact_year = FilteringClass(df).exact_year(year)
 
     filtered_df = pd.concat([Filter_genre, Filter_exact_year], axis =0).drop_duplicates()
+
+    if not os.path.exists(output):
+        os.makedirs(output)
+
+    df.to_csv(f"{output}/final_df.csv", index= None)
 
     return filtered_df.shape()
 
