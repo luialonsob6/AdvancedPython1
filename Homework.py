@@ -36,8 +36,13 @@ class FilteringClass:
 def main(input, output, genre, year):
     """
     Main Function
-    """     
-    df = pd.read_csv(input)
+    """   
+    try:
+        df = pd.read_csv(input)
+        print(f"The file imported is:'{input}'")
+    except FileNotFoundError:
+        print(f"The file:'{input}' was not found")
+    
     
     Filter_genre = FilteringClass(df).by_genre(genre)
     Filter_exact_year = FilteringClass(df).exact_year(year)
