@@ -30,7 +30,7 @@ class FilteringClass:
 @click.command(short_help="parser to import dataset")
 @click.option("-i","--input",required=True, help="File to import")
 @click.option("-o", "--output", default="outputs", help="Path to the output folder")
-@click.optiom("-f", "--filtering", is_Flag=True, help = "Set a filtering or not")
+@click.option("-f", "--filtering", is_Flag=True, help = "Set a filtering or not")
 @click.option("-g", "--genre", help="Filter by a desired genre", required=True)
 @click.option("-y", "--year", help="Filter by a desired minimum year", required=True)
 
