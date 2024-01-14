@@ -38,6 +38,14 @@ def main(input, output, genre, year):
     Main Function
     """     
     df = pd.read_csv(input)
+    
+    Filter_genre = FilteringClass(df).by_genre(genre)
+    Filter_exact_year = FilteringClass(df).exact_year(year)
+
+    filtered_df = pd.concat([Filter_genre, Filter_exact_year], axis =0).drop_duplicates()
+
+    print(df.shape())
+    return filtered_df.shape()
 
 if __name__=="__main__":
     main()
