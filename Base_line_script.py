@@ -21,10 +21,10 @@ class FilteringClass:
 @click.command(short_help="parser to import dataset")
 @click.option("-i","--input",required=True, help="File to import")
 
-def main():
+def main(input):
     """
     Main Function
-    """
+    """     
     df = pd.read_csv(input)
     result = FilteringClass(df).filter_price(12)
     print(result.shape)
