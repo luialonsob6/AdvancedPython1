@@ -12,22 +12,32 @@ class FilteringClass:
     def __init__(self, df):
         self.df = df
     
-    def filter_price(self,price):
-        """
-        filter by price
-        """
-        return self.df[self.df["Price Starting With ($)"] < price]
+    def by_genre(self, genre):
+        return self.df[self.df["Genre"] == genre]
+    
+    def exact_year(self, year):
+        return self.df[self.df["Year"] == int(year)]
+    
+    def over_year(self, year):
+        return self.df[self.df["Year"] > int(year)]
+    
+    def less_year(self,year):
+        return self.df[self.df["Year"] < int(year)]
+    
+    
 
 @click.command(short_help="parser to import dataset")
 @click.option("-i","--input",required=True, help="File to import")
+@click.option("-o", "--output", default="outputs", help="Path to the output folder")
+@click.option("-g", "--genre", help="Filter by a desired genre", required=True)
+@click.option("-y", "--year", help="Filter by a desired minimum year", required=True)
 
-def main(input):
+
+def main(input, output, genre, year):
     """
     Main Function
     """     
     df = pd.read_csv(input)
-    result = FilteringClass(df).filter_price(12)
-    print(result.shape)
 
 if __name__=="__main__":
     main()
