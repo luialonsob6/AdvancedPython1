@@ -2,7 +2,7 @@
 Script to write the test for the sum and substract functions
 """
 import unittest
-from Scripts.simple import sum_two_nums, sub_two_nums
+from Scripts.simple import sum_two_nums, sub_two_nums, divide_two_numbers 
 
 
 class TestSimpleFunctions(unittest.TestCase):   #Importante todo los test han de empezar con la palabra test
@@ -22,7 +22,14 @@ class TestSimpleFunctions(unittest.TestCase):   #Importante todo los test han de
         Test the sub function
         """
         result = sub_two_nums(1,3)
-        self.assertEqual(result, -2)        
+        self.assertEqual(result, -2)      
+
+    def test_div(self):
+        """
+        Test the division function
+        """  
+        result = divide_two_numbers(10,5)
+        self.assertEqual(result, 2)
 
 if __name__ =="__main__":
     unittest.main()

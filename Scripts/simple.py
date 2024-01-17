@@ -16,6 +16,12 @@ def sub_two_nums(x,y):
 
     return x - y
 
+def divide_two_numbers(x,y):
+    """
+    Divide two numbers
+    """
+    return x/y
+
 
 if __name__=="__main__":
     pass
