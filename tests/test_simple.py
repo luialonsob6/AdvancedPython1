@@ -2,7 +2,8 @@
 Script to write the test for the sum and substract functions
 """
 import unittest
-from Scripts.simple import sum_two_nums, sub_two_nums, divide_two_numbers 
+import math
+from Scripts.simple import sum_two_nums, sub_two_nums, divide_two_numbers, lcm_two_numbers,potency_two_numbers
 
 
 class TestSimpleFunctions(unittest.TestCase):   #Importante todo los test han de empezar con la palabra test
@@ -30,6 +31,20 @@ class TestSimpleFunctions(unittest.TestCase):   #Importante todo los test han de
         """  
         result = divide_two_numbers(10,5)
         self.assertEqual(result, 2)
+
+    def test_mcm(self):
+        """
+        Test the least common multiple
+        """
+        result = lcm_two_numbers(57,8)
+        self.assertEqual(result,456)
+    
+    def test_potency(self):
+        """
+        Test the result of x elevated to y
+        """
+        result= potency_two_numbers(4,4)
+        self.assertEqual(result,256)
 
 if __name__ =="__main__":
     unittest.main()
